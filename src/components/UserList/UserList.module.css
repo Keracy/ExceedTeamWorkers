@@ -1,0 +1,7 @@
+.user_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.user_block {
+  text-align: center;
+}

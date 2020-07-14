@@ -1,0 +1,12 @@
+.user {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 20px;
+}
+.user:hover {
+  background-color: #3583d2;
+  color: #fff;
+  border: 1px solid #3583d2;
+  cursor: pointer;
+}

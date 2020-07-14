@@ -1,0 +1,13 @@
+.employee_block {
+  text-align: center;
+}
+.employee_form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 80px;
+}
+.employee_input {
+  font-size: 50px;
+  margin: 50px;
+}

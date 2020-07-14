@@ -1,12 +1,13 @@
 import React from "react";
+import s from "./User.module.css";
 const User = (props) => {
   return (
-    <div>
+    <div className={s.user}>
       <img src={"https://robohash.org/" + props.id} alt="Logo" />
       <div>
-        <h3>Name: {props.name}</h3>
-        <h4>Login: {props.username}</h4>
-        <h4>E-Mail: {props.email}</h4>
+        <h2>{props.name}</h2>
+        <h5>{props.phone}</h5>
+        <h5>{props.email}</h5>
       </div>
     </div>
   );
