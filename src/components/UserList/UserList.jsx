@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import User from "./User/User";
 import { connect } from "react-redux";
+import SearchInput from "./SearchInput/SearchInput";
 
 const UserList = (props) => {
+  const [searchWord, setSearchWord] = useState("");
+  const searchHandler = (event) => {
+    setSearchWord(event.target.value);
+  };
   return (
-    <div className="collection center">
-      {props.users.map((user) => (
-        <User
-          className="collection-item"
-          key={user.id}
-          id={user.id}
-          name={user.name}
-          username={user.username}
-          email={user.email}
-        />
-      ))}
+    <div>
+      <SearchInput changeHandler={searchHandler} />
+      {props.users
+        .filter((user) =>
+          user.name.toLowerCase().includes(searchWord.toLowerCase())
+        )
+        .map((user) => (
+          <User
+            key={user.id}
+            id={user.id}
+            name={user.name}
+            username={user.username}
+            email={user.email}
+          />
+        ))}
     </div>
   );
 };
