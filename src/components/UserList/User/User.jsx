@@ -3,7 +3,7 @@ import s from "./User.module.css";
 const User = (props) => {
   return (
     <div className={s.user}>
-      <img src={"https://robohash.org/" + props.id} alt="Logo" />
+      <img src={"https://robohash.org/" + props.name} alt="Logo" />
       <div>
         <h2>{props.name}</h2>
         <h5>{props.phone}</h5>

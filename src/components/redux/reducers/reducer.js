@@ -1,3 +1,5 @@
+import { ADD_EMPLOYEE } from "../action-types";
+
 const initialState = {
   users: [
     {
@@ -184,5 +186,10 @@ const initialState = {
 };
 
 export const rootReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case ADD_EMPLOYEE:
+      return { ...state, users: [...state.users, action.payload] };
+    default:
+      return state;
+  }
 };
