@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
+import AddEmployee from "./AddEmployee/AddEmployee";
 import { Typography, CardMedia } from "@material-ui/core";
-import classes from "./User.module.css";
 
 function getModalStyle() {
   const top = 50;
@@ -28,10 +28,9 @@ const useStyles = makeStyles((theme) => ({
     width: "40px",
     cursor: "pointer",
   },
-  modal: {},
 }));
 
-export default function User(props) {
+export default function AddEmployeeModal() {
   const s = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -46,27 +45,20 @@ export default function User(props) {
   };
 
   const body = (
-    <div style={modalStyle} className={s.paper + " " + s.modal}>
-      <img src={"https://robohash.org/" + props.name} alt="Logo" />
-      <div>
-        <h2>{props.name}</h2>
-        <h5>{props.phone}</h5>
-        <h5>{props.email}</h5>
-      </div>
+    <div style={modalStyle} className={s.paper}>
+      <Typography variant="h5">New Employee</Typography>
+      <AddEmployee />
     </div>
   );
 
   return (
     <div>
-      <div className={classes.user} onClick={handleOpen}>
-        <img src={"https://robohash.org/" + props.name} alt="Logo" />
-        <div>
-          <h2>{props.name}</h2>
-          <h5>{props.phone}</h5>
-          <h5>{props.email}</h5>
-        </div>
-      </div>
-
+      <CardMedia
+        onClick={handleOpen}
+        component="img"
+        image="https://image.flaticon.com/icons/png/512/104/104779.png"
+        className={s.add_icon}
+      />
       <Modal
         open={open}
         onClose={handleClose}
