@@ -1,4 +1,9 @@
-import { ADD_EMPLOYEE } from "../action-types";
+import {
+  ADD_EMPLOYEE,
+  GET_USERS_BEGIN,
+  GET_USERS_SUCCEED,
+  GET_USERS_FAIL,
+} from "../action-types";
 
 const initialState = {
   users: [
@@ -183,12 +188,21 @@ const initialState = {
       phone: "+1 (803) 406-3223",
     },
   ],
+  workers: [],
+  loader_active: false,
+  err_msg: "",
 };
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_EMPLOYEE:
       return { ...state, users: [...state.users, action.payload] };
+    case GET_USERS_BEGIN:
+      return { ...state, loader_active: true };
+    case GET_USERS_SUCCEED:
+      return { ...state, loader_active: false, workers: action.payload };
+    case GET_USERS_FAIL:
+      return { ...state, loader_active: false, err_msg: action.err };
     default:
       return state;
   }

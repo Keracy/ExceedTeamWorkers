@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import AddEmployeeModal from "./Modal";
+import Popover from "@material-ui/core/Popover";
 
 const useStyles = makeStyles({
   user_block: {
@@ -44,7 +45,7 @@ const UserList = (props) => {
             user.name.toLowerCase().includes(searchWord.toLowerCase())
           )
           .map((user) => (
-            <Grid item xs={4}>
+            <Grid item lg={3} md={4} sm={6}>
               <User
                 key={user.id}
                 id={user.id}
