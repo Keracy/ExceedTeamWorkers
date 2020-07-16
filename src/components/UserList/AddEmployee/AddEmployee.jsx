@@ -49,7 +49,6 @@ const AddEmployee = (props) => {
         onSubmit={submitHandler}
       >
         <TextField
-          size="medium"
           className={s.employee_input}
           name="name"
           onChange={changeHandler}

@@ -5,14 +5,9 @@ import { getUsers } from "../redux/actions/actions";
 import { connect } from "react-redux";
 
 const Navbar = (props) => {
-  useEffect(() => {
-    props.getUsers();
-    console.log(props.workers);
-  }, []);
-
   return (
     <div className={s.header}>
-      <Link className={s.nav_link} to="/users">
+      <Link className={s.nav_link} to="/">
         Employee List
       </Link>
       <Link className={s.nav_link} to="/projects">
@@ -22,9 +17,6 @@ const Navbar = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { workers: state.workers };
+  return { users: state.users };
 };
-const mapDispatchToProps = {
-  getUsers,
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps)(Navbar);

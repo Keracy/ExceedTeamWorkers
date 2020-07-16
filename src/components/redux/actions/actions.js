@@ -3,10 +3,14 @@ import {
   GET_USERS_BEGIN,
   GET_USERS_SUCCEED,
   GET_USERS_FAIL,
+  SET_SEARCH_WORD,
 } from "../action-types";
 import axios from "axios";
 export const addEmployee = (payload) => {
   return { type: ADD_EMPLOYEE, payload };
+};
+export const setSearchWord = (payload) => {
+  return { type: SET_SEARCH_WORD, payload };
 };
 
 export const getUsers = () => {
