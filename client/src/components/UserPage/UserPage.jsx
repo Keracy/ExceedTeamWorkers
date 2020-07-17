@@ -10,12 +10,18 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "300px",
-    height: "300px",
+    width: "100%",
+    height: "100vh",
   },
-  user_page: {
+  userPage: {
+    width: "80%",
     display: "flex",
     justifyContent: "space-around",
+    border: "1px solid blue",
+  },
+  pageBlock: {
+    display: "flex",
+    justifyContent: "center",
   },
 });
 
@@ -28,24 +34,19 @@ const UserPage = (props) => {
     props.getUser(userId);
   }, []);
   return (
-    <div class={s.user_page}>
+    <div className={s.pageBlock}>
       {loadingUser ? (
         <div className={s.progress}>
           <CircularProgress />
         </div>
       ) : (
-        <img src={"https://robohash.org/" + user.name} alt="" />
-      )}
-      {loadingUser ? (
-        <div className={s.progress}>
-          <CircularProgress />
-        </div>
-      ) : (
-        <div>
-          <Typography>{user.name}</Typography>
-          <Typography>{user.name}</Typography>
-          <Typography>{user.name}</Typography>
-          <Typography>{user.name}</Typography>
+        <div className={s.userPage}>
+          <img src={"https://robohash.org/" + user._id} alt="" />
+          <div>
+            <Typography>{user.name}</Typography>
+            <Typography>{user.phone}</Typography>
+            <Typography>{user.email}</Typography>
+          </div>
         </div>
       )}
     </div>

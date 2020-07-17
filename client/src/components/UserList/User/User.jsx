@@ -9,6 +9,9 @@ import CardContent from "@material-ui/core/CardContent";
 import SimpleMenu from "./Menu/Menu";
 
 const useStyles = makeStyles({
+  username: {
+    color: "black",
+  },
   add_icon: {
     width: "40px",
     cursor: "pointer",
@@ -41,7 +44,12 @@ export default function User(props) {
                 title={props.name}
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography
+                  className={s.username}
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                >
                   {props.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">

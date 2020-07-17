@@ -1,5 +1,4 @@
 import {
-  ADD_EMPLOYEE,
   GET_USERS_BEGIN,
   GET_USERS_SUCCEED,
   GET_USERS_FAIL,
@@ -45,8 +44,12 @@ export const addEmployee = (payload) => {
   return async (dispatch) => {
     try {
       dispatch({ type: ADD_USER_BEGIN });
-      await axios.post("http://localhost:4002/users/", payload);
-      dispatch({ type: ADD_USER_SUCCEED, payload });
+      const { data } = await axios.post(
+        "http://localhost:4002/users/",
+        payload
+      );
+      console.log(data);
+      dispatch({ type: ADD_USER_SUCCEED, payload: data });
     } catch (err) {
       dispatch({ type: ADD_USER_FAIL });
     }
