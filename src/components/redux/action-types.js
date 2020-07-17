@@ -1,5 +1,0 @@
-export const ADD_EMPLOYEE = "ADD_EMPLOYEE";
-export const GET_USERS_BEGIN = "GET_USERS_BEGIN";
-export const GET_USERS_SUCCEED = "GET_USERS_SUCCEED";
-export const GET_USERS_FAIL = "GET_USERS_FAIL";
-export const SET_SEARCH_WORD = "SET_SEARCH_WORD";
